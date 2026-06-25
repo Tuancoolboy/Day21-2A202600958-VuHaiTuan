@@ -43,6 +43,30 @@ Day21_Fine-tuning/
 4. Hoàn thành lab + viết REPORT.md theo template
 5. Nộp zip qua LMS
 
+### Chạy bằng Python script (code-only)
+
+Nếu muốn chạy ngoài notebook, dùng script CLI mới:
+
+```bash
+pip install -r requirements.txt
+python train_lora_qlora.py --output-dir outputs/lab21_lora_t4
+```
+
+Script sẽ tự động:
+- Load dataset `5CD-AI/Vietnamese-alpaca-gpt4-gg-translated` và lấy 200 samples
+- Format Alpaca, lọc output quá ngắn, dedupe, phân tích p95 token length
+- Train 3 adapters `r=16`, `r=8`, `r=64` với QLoRA 4-bit
+- Lưu `rank_experiment_summary.csv`, `qualitative_comparison.csv`, `loss_curve.png`, `dataset_stats.json`
+
+Ví dụ dùng dataset JSON/JSONL tự tạo:
+
+```bash
+python train_lora_qlora.py \
+  --custom-data data/my_alpaca.jsonl \
+  --output-dir outputs/my_lab21 \
+  --sample-size 300
+```
+
 ---
 
 ## 📚 Nội dung chính của bài học

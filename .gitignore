@@ -181,6 +181,12 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# Lab 21 generated artifacts
+outputs/
+lab21_lora_t4/
+adapter_model.safetensors
+checkpoint-*/
+
 # PyCharm
 #   JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #   be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
